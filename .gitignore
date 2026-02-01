@@ -1,0 +1,45 @@
+# Exclude Python bytecode and cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore the local SQLite database
+db.sqlite3
+
+# Skip the virtual environment
+.venv/
+venv/
+ENV/
+
+# Ignores sensitive info
+.env
+.env.local
+.env.*.local
+.env.production
+*.env
+.venv
+env/
+instance/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Static files
+staticfiles/
+
+# Media
+media/
+
+# Logs
+*.log
+
+# Ignore IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+nul

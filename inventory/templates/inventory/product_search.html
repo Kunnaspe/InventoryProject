@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Products</title>
+</head>
+<body>
+    <h1>Search Products</h1>
+    <form method="GET" action="{% url 'product_search' %}">
+        <input type="text" name="q" placeholder="Enter Product Number" value="{{ query|default:'' }}">
+        <button type="submit">Search</button>
+    </form>
+    <br>
+    <a href="{% url 'product_list' %}">Back to List</a>
+    <br><br>
+    {% if query %}
+        <h2>Results for "{{ query }}"</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Number</th>
+                    <th>Product Date</th>
+                    <th>Department</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.ProductID }}</td>
+                    <td>{{ product.ProductName }}</td>
+                    <td>{{ product.ProductNumber }}</td>
+                    <td>{{ product.ProductDate }}</td>
+                    <td>{{ product.DepartmentNumber.DepartmentName }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No products found matching that number.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>
