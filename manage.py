@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """Django's utility for admin tasks"""
 import os
 import sys
