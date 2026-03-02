@@ -44,12 +44,12 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # Generic OpenID Connect provider — used to integrate AWS Cognito as an OIDC IdP
     'allauth.socialaccount.providers.openid_connect',
-    # Our inventory application
+    # inventory application
     'inventory',
 ]
 
 # Middleware that handles security, sessions, and other important functions.
-# AccountMiddleware is required by django-allauth (0.56+) for request-scoped auth state.
+# AccountMiddleware is required by django-allauth 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -85,7 +85,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'DjangoProject.wsgi.application'
 
 
-# Use MariaDB in prod, SQLite in local dev
+# MariaDB in prod, SQLite in local dev
 db_host = os.environ.get('DB_HOST', '')
 if db_host:
     DATABASES = {
