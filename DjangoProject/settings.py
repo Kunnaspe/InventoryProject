@@ -168,22 +168,16 @@ SOCIALACCOUNT_AUTO_SIGNUP = True
 
 
 # AWS Cognito OIDC provider configuration
-#
 # AWS Cognito exposes a standard OpenID Connect discovery endpoint at:
-#   https://cognito-idp.<region>.amazonaws.com/<user_pool_id>/.well-known/openid-configuration
-#
-# allauth fetches this document at startup to discover the authorization,
-# token, and JWKS (public-key) endpoints automatically.
-#
-# To set up Cognito:
-#   1. In the AWS Console, go to Cognito > User Pools > Create user pool
+#  https://cognito-idp.<region>.amazonaws.com/<user_pool_id>/.well-known/openid-configuration
+# Steps I used to set up Cognito:
+#   1. In the AWS Console, Cognito > User Pools > Create user pool
 #   2. Under App Integration > App clients, add a new public client
-#   3. Set the Allowed callback URL to:
-#        http://127.0.0.1:8000/accounts/oidc/cognito/login/callback/
+#   3. Set callback URL to:
 #   4. Enable the Authorization code grant OAuth flow
 #   5. Enable the openid, email, and profile OAuth scopes
-#   6. Note your User Pool ID (format: <region>_XXXXXXXXX) and App Client ID/Secret
-#   7. Set the environment variables below in your .env file
+#   6. Note User Pool ID (format: <region>_XXXXXXXXX) and App Client ID/Secret
+#   7. Set the environment variables below in .env file
 
 SOCIALACCOUNT_PROVIDERS = {
     'openid_connect': {
