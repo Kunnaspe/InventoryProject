@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Convenience Store Inventory</title>
+    <style>
+        /* Simple centred layout for the login page */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .login-box {
+            background: #fff;
+            padding: 40px 50px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            text-align: center;
+            width: 340px;
+        }
+        h1 { font-size: 1.4rem; margin-bottom: 6px; color: #333; }
+        p.subtitle { color: #666; font-size: 0.9rem; margin-bottom: 28px; }
+        /* Messages (e.g. "You have been signed out") */
+        .messages { list-style: none; padding: 0; margin-bottom: 18px; }
+        .messages li { background: #e8f4fd; border: 1px solid #b8d9f5; padding: 8px 12px;
+                       border-radius: 4px; color: #1a6fa0; font-size: 0.88rem; }
+        /* Cognito / AWS styled button */
+        .btn-cognito {
+            display: inline-block;
+            background-color: #ff9900;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            transition: background-color 0.2s;
+        }
+        .btn-cognito:hover { background-color: #e88800; }
+        .powered { margin-top: 24px; font-size: 0.75rem; color: #aaa; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1>Convenience Store Inventory</h1>
+        <p class="subtitle">Please sign in to access the inventory system.</p>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <!--
+            provider_login_url "cognito" generates the URL that starts the
+            Cognito OIDC authorization code flow:
+            /accounts/oidc/cognito/login/
+            Cognito then redirects the user to the hosted UI, authenticates
+            them, and calls back to /accounts/oidc/cognito/login/callback/
+        -->
+        <a class="btn-cognito" href="/accounts/oidc/cognito/login/?process=login">
+            Sign in with AWS Cognito
+        </a>
+
+        <p class="powered">Powered by AWS Cognito &amp; OAuth 2.0 / OIDC</p>
+    </div>
+</body>
+</html>

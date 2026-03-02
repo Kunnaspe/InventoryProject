@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Products - Convenience Store Inventory</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+        .header { display: flex; justify-content: space-between; align-items: center;
+                  background: #fff; padding: 12px 20px; border-radius: 6px;
+                  box-shadow: 0 1px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .header h1 { margin: 0; font-size: 1.3rem; color: #333; }
+        .user-info { font-size: 0.9rem; color: #555; }
+        .user-info a { color: #d9534f; text-decoration: none; margin-left: 12px; font-weight: bold; }
+        .user-info a:hover { text-decoration: underline; }
+        .search-form { background: #fff; padding: 16px 20px; border-radius: 6px;
+                       box-shadow: 0 1px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .search-form input[type="text"] {
+            padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px;
+            font-size: 0.95rem; width: 260px;
+        }
+        .search-form button {
+            padding: 8px 18px; background: #ff9900; color: #fff; border: none;
+            border-radius: 4px; font-size: 0.95rem; cursor: pointer; font-weight: bold;
+        }
+        .search-form button:hover { background: #e88800; }
+        a.back-link { color: #0066cc; text-decoration: none; }
+        a.back-link:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; background: #fff;
+                border-radius: 6px; overflow: hidden;
+                box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+        th { background: #ff9900; color: #fff; padding: 10px 14px; text-align: left; }
+        td { padding: 9px 14px; border-bottom: 1px solid #eee; color: #333; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #fffbf0; }
+    </style>
+</head>
+<body>
+
+    <!-- Header: page title + authenticated user display + logout link -->
+    <div class="header">
+        <h1>Search Products</h1>
+        <div class="user-info">
+            Signed in as <strong>{{ request.user.email }}</strong>
+            <a href="{% url 'account_logout' %}">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="search-form">
+        <form method="GET" action="{% url 'product_search' %}">
+            <input type="text" name="q" placeholder="Enter Product Number"
+                   value="{{ query|default:'' }}">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <p><a class="back-link" href="{% url 'product_list' %}">&#8592; Back to Product List</a></p>
+
+    {% if query %}
+        <h2 style="color:#333;">Results for &ldquo;{{ query }}&rdquo;</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Number</th>
+                    <th>Product Date</th>
+                    <th>Department</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.ProductID }}</td>
+                    <td>{{ product.ProductName }}</td>
+                    <td>{{ product.ProductNumber }}</td>
+                    <td>{{ product.ProductDate }}</td>
+                    <td>{{ product.DepartmentNumber.DepartmentName }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" style="text-align:center; color:#888;">
+                        No products found matching that number.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+</body>
+</html>

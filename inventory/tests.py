@@ -1,0 +1,3 @@
+from django.test import TestCase
+
+# Used for any test cases...

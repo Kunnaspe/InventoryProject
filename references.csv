@@ -1,0 +1,18 @@
+Category,Resource,URL,Description
+Official Documentation,Django Official Documentation,https://docs.djangoproject.com/en/5.2/,Complete Django framework documentation
+Official Documentation,Django Getting Started,https://www.djangoproject.com/start/,Official beginner tutorial
+Official Documentation,AWS Elastic Beanstalk - Django Deployment,https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html,AWS official guide for Django deployment
+Django Tutorials,LearnDjango.com,https://learndjango.com/tutorials/,Updated tutorials for Django 5.1+
+Django Tutorials,Real Python - Django Tutorials,https://realpython.com/tutorials/django/,Comprehensive Django guides
+Django Tutorials,MDN Web Docs - Django,https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Django,Mozilla's Django tutorial
+Django Tutorials,W3Schools Django,https://www.w3schools.com/django/,Beginner-friendly Django tutorial
+Django Tutorials,VS Code Django Tutorial,https://code.visualstudio.com/docs/python/tutorial-django,Django development in VS Code
+AWS Deployment Guides,GeeksforGeeks - Django on AWS EC2,https://www.geeksforgeeks.org/python/how-to-deploy-django-application-in-aws-ec2/,Step-by-step EC2 deployment
+AWS Deployment Guides,Medium - Django AWS 2024 Guide,https://medium.com/django-unleashed/deploying-django-applications-on-aws-a-step-by-step-guide-in-2024-e0d9ecbdcde3,"EC2, RDS, Elastic Beanstalk deployment"
+AWS Deployment Guides,TestDriven.io - Django Docker AWS,https://testdriven.io/blog/django-docker-https-aws/,Docker + Let's Encrypt SSL deployment
+AWS Deployment Guides,Real Python - Django + PostgreSQL on Elastic Beanstalk,https://realpython.com/deploying-a-django-app-and-postgresql-to-aws-elastic-beanstalk/,PaaS deployment guide
+AWS Deployment Guides,DEV Community - Production Django on AWS,https://dev.to/rmiyazaki6499/deploying-a-production-ready-django-app-on-aws-1pk3,Production-ready setup guide
+AWS Deployment Guides,CodeWithMuh - Auto Scaling + Load Balancer,https://codewithmuh.medium.com/deploy-django-app-on-aws-ec2-with-auto-scaling-group-load-balancer-route53-and-ssl-e7b0e81b8834,"Advanced AWS architecture with SSL, Route53"
+YouTube Videos,CodeWithMuh,https://www.youtube.com/@codewithmuh,"Django AWS EC2 with Auto Scaling, Load Balancer, Route53, SSL (March 2024)"
+YouTube Videos,Shazab Tanveer - Django on EC2,https://www.youtube.com/watch?v=uiPSnrE6uWE,Django Project on AWS EC2 step-by-step
+Courses,Udemy - Django in AWS (EC2): Fundamentals,https://www.udemy.com/course/django-tutorial-amazon-web-services/,"EC2, S3, CloudFront, Load Balancing, Auto Scaling"

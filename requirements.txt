@@ -1,0 +1,12 @@
+Django>=4.2,<5.0
+python-dotenv>=1.0,<2.0
+gunicorn>=21.2,<22.0
+mysqlclient>=2.2,<2.3
+# OAuth / OIDC support via django-allauth (AWS Cognito provider)
+django-allauth>=0.57,<1.0
+# JWT verification — required by allauth's OIDC provider to validate Cognito ID tokens
+PyJWT>=2.8,<3.0
+# Cryptography — required for RS256 public-key verification of Cognito JWTs
+cryptography>=41.0,<45.0
+# requests — used by allauth to fetch the Cognito OIDC discovery document at startup
+requests>=2.31,<3.0
